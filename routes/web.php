@@ -27,3 +27,5 @@ Route::get('/contact', function () {
         ->with("number", $number);
 
 })->name("home.contact");
+Route::get('/products', 'App\Http\Controllers\ProductController@index')->name("product.index");
+Route::get('/products/{id}', 'App\Http\Controllers\ProductController@show')->name("product.show");
