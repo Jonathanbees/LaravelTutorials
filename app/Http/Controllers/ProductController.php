@@ -22,16 +22,13 @@ class ProductController extends Controller
         $viewData["products"] = ProductController::$products;
         return view('product.index')->with("viewData", $viewData);
     }
-
     public function show(string $id): View|RedirectResponse
     {
         $viewData = [];
         $product = collect(ProductController::$products)->firstWhere('id', $id);
-
         if (!$product) {
             return redirect()->route('home.index');
         }
-
         $viewData["title"] = $product["name"] . " - Online Store";
         $viewData["subtitle"] = $product["name"] . " - Product information";
         $viewData["product"] = $product;
@@ -41,18 +38,19 @@ class ProductController extends Controller
     {
         $viewData = []; //to be sent to the view
         $viewData["title"] = "Create product";
-
         return view('product.create')->with("viewData", $viewData);
     }
-
     public function save(Request $request)
     {
         $request->validate([
             "name" => "required",
             "price" => "required|numeric|min:1",
         ]);
-        return redirect()->route('products.success');
-
+        return redirect()->route('product.success');
+    }
+    public function success()
+    {
+        return view('product.success');
     }
 
 }
