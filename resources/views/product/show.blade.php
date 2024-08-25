@@ -12,8 +12,7 @@
         <h5 class="card-title">
            {{ $viewData["product"]["name"] }}
         </h5>
-        <p class="card-text">{{ $viewData["product"]["description"] }}</p>
-        <p style="{{ $viewData['product']['price'] > 100 ? 'color: red;' : '' }}">{{$viewData["product"]["price"]}}</p>
+        <p class="cart-text" style="{{ $viewData['product']['price'] > 100 ? 'color: red;' : '' }}">{{$viewData["product"]["price"]}}</p>
       </div>
     </div>
   </div>
