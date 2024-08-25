@@ -13,6 +13,10 @@
            {{ $viewData["product"]["name"] }}
         </h5>
         <p class="cart-text" style="{{ $viewData['product']['price'] > 100 ? 'color: red;' : '' }}">{{$viewData["product"]["price"]}}</p>
+        @foreach($viewData["product"]->comments as $comment)
+        - {{ $comment->getDescription() }}<br />
+        @endforeach
+
       </div>
     </div>
   </div>
